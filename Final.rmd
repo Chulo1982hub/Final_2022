@@ -113,8 +113,8 @@ barchartGC(~infected + treatment,data=dataG)
 barchartGC(~infected + treatment,data=dataG, type= "percent")
 ```
 
-This chart shows there is significant different between the placebo end vaccine
-among those that have covid19 the vaccine work among those there were Ok there don't have problem
+This chart shows there is significant different between the placebo end vaccine.
+among those that got infected the chart show the hight percentage got infected with covid19 with the vaccine.
 
 ##Numerical
 
@@ -135,10 +135,67 @@ chisqtestGC(table1)
 ##Conclusion
 
 
-Overall, with such a low p-value, we reject the null hypothesis and conclude that there is a significant association between treatment type and infection status. In other words, it suggests that the type of treatment (placebo or vaccine) is related to the likelihood of getting infected with COVID-19.
+With such a low p-value, 0 we reject the null hypothesis and conclude that there is a significant association between treatment type and infection status. In other words, it suggests that the type of treatment (placebo or vaccine) is related to of getting infected with COVID-19.
 
 
 ## Druggies
 
 
+##Intrdotuction
+
+$H_0$ There is no difference in the effectiness of COVID921 Druggies.
+
+$H_0$ There is a difference in the effectiness of COVID921 Druggies.
+
+
+##Methods
+
+Druggies/Drug use categorical
+
+```{r}
+levels(FinalData$DrugUser)
+dataD = filter(FinalData,DrugUser=="yes")
+            
+
+
+barchartGC(~infected + treatment,data=dataD) 
+barchartGC(~infected + treatment,data=dataD, type= "percent")
+```
+
+The chart *ow us the is a significant difference between the druguser " Yes "   among those the are OK 
+
+
+##Numerical
+
+```{r}
+table1 <- xtabs(~infected + treatment, data=dataD)
+rowPerc(table1)
+colPerc(table1)
+```
+
+COVID-19 cases occurred among individuals who received the vaccine, a higher percentage of vaccine recipients remained uninfected compared to the placebo group.
+
+## Inferential  
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+```
+
+
+Similar to the previous chart a low p-value, we reject the null hypothesis and conclude that there is a significant association between treatment type and infection status in this dataset as well. placebo and vaccine got infected with covid19
+
+
+
+
 # Overall Results and Conclusions
+
+ it can be concluded that there is a significant association between the type of treatment (placebo vs. vaccine) and infection status (COVID-19 infected vs. not infected) in the studied groups.Therefore, it's reasonable to conclude that the type of treatment (placebo or vaccine) has a substantial impact on the likelihood of being infected with COVID-19 in the studied groups.
+
+Therefore we reject the null hypothessis there significate differences between the groups of females, LGBT/Gays and DrugUser/yes. and conclude that there is a significant association between treatment type and infection status in the studied groups.
+
+
+
+
+
+ 
