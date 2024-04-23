@@ -70,12 +70,11 @@ colPerc(table1)
 From this data, it seems that the actual vaccine has a lower infection rate compared to the placebo vaccine, and among those infected, the actual vaccine has a slightly better treatment outcome.
 
 
-##Inferential
+## Inferential  
 
 ```{r}
 chisq.test(table1)
 chisqtestGC(table1)
-fisher.test(table1)
 ```
 
 
@@ -87,13 +86,56 @@ Fisher's Exact Test suggests that the odds of being infected with COVID-19 are a
 those chart provides strong evidence that the vaccine is effective in reducing the risk of COVID-19 infection compared to the placebo.so we reject 
 
 
-
-
-
-
-
 ## LGBTQ
 
+
+##Intrdotuction
+
+$H_0$ There is no difference in the effectiness of COVID921 between Gay.
+
+$H_0$ There is a difference in the effectiness of COVID921 between Gay.
+
+##Methods
+
+LGBT/Gays Categorical
+
+##Descriptive Result
+
+### Graphical Descriptive Results
+
+```{r}
+levels(FinalData$LGBTQ)
+dataG = filter(FinalData,LGBTQ=="gay")
+            
+
+
+barchartGC(~infected + treatment,data=dataG)
+barchartGC(~infected + treatment,data=dataG, type= "percent")
+```
+
+This chart shows there is significant different between the placebo end vaccine
+among those that have covid19 the vaccine work among those there were Ok there don't have problem
+
+##Numerical
+
+```{r}
+table1 <- xtabs(~infected + treatment, data=dataG)
+rowPerc(table1)
+colPerc(table1)
+```
+
+The infection rate among those who received the placebo is 15.38%, while among those who received the vaccine, it's only 0.66%. This suggests that the vaccine is effective in reducing the risk of COVID-19 infection.
+
+## Inferential  
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+```
+##Conclusion
+
+
+Overall, with such a low p-value, we reject the null hypothesis and conclude that there is a significant association between treatment type and infection status. In other words, it suggests that the type of treatment (placebo or vaccine) is related to the likelihood of getting infected with COVID-19.
 
 
 ## Druggies
